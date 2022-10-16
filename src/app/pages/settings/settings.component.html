@@ -1,0 +1,18 @@
+<div class="container bg-light mt-5 shadow-lg shadow" style="height: 270px;width: 500px">
+  <div *ngIf="!authentication">
+    <div class="pt-2">
+      <h1 class="text-center text-primary">Authorization</h1>
+      <div class="border-2 border-danger bg-danger rounded" *ngIf="wrongCredentials">
+        <p class="text-white text-center">Please fill both of the text fields</p>
+      </div>
+      <input class="form-control" type="text" [(ngModel)]="clientId" placeholder="Client ID">
+      <input class="form-control mt-2" type="text" [(ngModel)]="clientSecret" placeholder="Client Secret">
+    </div>
+    <div class="text-center">
+      <button class="btn btn-success mt-3" (click)="saveCredentials()">Save Credentials</button>
+    </div>
+  </div>
+  <div *ngIf="authentication" class="d-flex justify-content-center w-100 h-100">
+      <h1 class="m-auto text-success">Access Available</h1>
+  </div>
+</div>
